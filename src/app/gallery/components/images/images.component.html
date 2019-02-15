@@ -1,0 +1,32 @@
+
+  <div *ngIf="greetings">
+    <h3>Welcome Admin!</h3>
+  </div>
+
+  <mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <p *ngFor="let cat of categories">
+      <mat-checkbox [checked] ="checkedMap[cat]" name="{{cat}}" (change)="applyFilter($event)">{{cat}}</mat-checkbox>
+    </p>
+  </mat-drawer>
+    <mat-drawer-content>
+    <mat-grid-list cols="4" rowHeight="130px">
+      <mat-grid-tile *ngFor="let tile of products"
+                     [colspan]="tile.cols"
+                     [rowspan]="tile.rows"
+                     [style.background]="tile.color">
+
+        <div>
+          <img [src]="tile.text" />
+        </div>
+        <div class="buybutton">
+          <button class="btn btn-success btn-sm"
+                  (click)="addProductToCart(tile)">
+            Add To Cart
+          </button>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    </mat-drawer-content>
+</mat-drawer-container>
+

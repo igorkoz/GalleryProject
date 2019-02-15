@@ -1,0 +1,10 @@
+<div class="header">
+  <div class="navigation-bar">
+    <a [routerLink]="['/home']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Weather ></a>
+    <br />
+    <a [routerLink]="['/home/admin']" routerLinkActive="active-link">For Admin ></a>
+  </div>
+</div>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
